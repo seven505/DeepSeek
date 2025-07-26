@@ -23,8 +23,8 @@ from concurrent.futures import ThreadPoolExecutor
 class Config:
     # 订阅源配置
     SUBSCRIPTION_URLS = [
-        "https://example.com/subscription.yaml",
-        "https://example.com/subscription.txt"
+        "https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml",
+        "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt"
     ]
     
     # 核心测试参数
