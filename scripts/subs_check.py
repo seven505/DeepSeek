@@ -24,7 +24,7 @@ class Config:
     # 订阅源配置
     SUBSCRIPTION_URLS = [
         "https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml",
-        "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt"
+        "https://raw.githubusercontent.com/SamanGho/v2ray_collector/main/v2tel_links1.txt"
     ]
     
     # 核心测试参数
