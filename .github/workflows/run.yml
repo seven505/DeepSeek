@@ -2,33 +2,43 @@ name: Node Tester
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 每天UTC 0点运行
-  workflow_dispatch:      # 允许手动触发
+    - cron: '0 0 * * *'  # 每天运行一次
+  workflow_dispatch:
 
 jobs:
   test-nodes:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      
+      with:
+        fetch-depth: 0
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
-        
+
     - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-        
+      run: pip install -r requirements.txt
+
     - name: Run node tester
+      run: python scripts/subs_check.py
+
+    # 添加Git配置步骤
+    - name: Configure Git
       run: |
-        python scripts/subs_check.py
-        
-    - name: Commit results
+        git config user.name 'GitHub Actions'
+        git config user.email 'actions@github.com'
+        git remote set-url origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+
+    - name: Commit and push results
       run: |
-        git config --global user.name 'GitHub Actions'
-        git config --global user.email 'actions@github.com'
         git add results/
-        test -n "$(git status --porcelain)" && git commit -m "Auto-update nodes" || echo "No changes"
-        git push
+        if [ -n "$(git status --porcelain)" ]; then
+          git commit -m "Auto-update nodes"
+          git push
+        else
+          echo "No changes to commit"
+        fi
