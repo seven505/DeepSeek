@@ -1,1 +1,10 @@
+SUBSCRIPTION_URLS:
+  - "https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml"
+  - "https://raw.githubusercontent.com/gfpcom/free-proxy-list/main/list/trojan.txt"
 
+TEST_UNLOCK: true
+MIN_SPEED: 1024  # KB/s
+MAX_DELAY: 5000   # ms
+CONCURRENCY: 70
+
+OUTPUT_FORMAT: "yaml"
