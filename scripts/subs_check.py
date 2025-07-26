@@ -24,13 +24,15 @@ class Config:
     # 订阅源配置
     SUBSCRIPTION_URLS = [
         "https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml",
-        "https://raw.githubusercontent.com/SamanGho/v2ray_collector/main/v2tel_links1.txt"
+        "https://raw.githubusercontent.com/SamanGho/v2ray_collector/main/v2tel_links1.txt",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml",
+        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml"
     ]
     
     # 核心测试参数
     TIMEOUT = 5.0                     # 连接超时时间(秒)
     CONCURRENCY = 70                  # 并发测试数量
-    MIN_SPEED = 1024                  # 最小速度要求(KB/s)
+    MIN_SPEED = 512                   # 最小速度要求(KB/s)
     MAX_DELAY = 5000                  # 最大延迟(ms)
     SPEED_TEST_SIZE = 10 * 1024 * 1024  # 测速文件大小(10MB)
     SPEED_TEST_URL = "https://speedtest.example.com/10mb.test"  # 测速文件URL
