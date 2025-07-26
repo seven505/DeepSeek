@@ -135,6 +135,13 @@ class ProtocolHandler:
     # 为节省空间，此处省略具体实现
     # 包含 parse_vmess, parse_vless, parse_trojan, parse_ss, parse_ssr, parse_hysteria 等方法
     # ...
+    def parse_vmess(self, config: str) -> dict:
+        # VMESS 解析实现
+        return {}
+    
+    def parse_vless(self, config: str) -> dict:
+        # VLESS 解析实现
+        return {}
 
 # ===================== 节点测试器 =====================
 class NodeTester:
